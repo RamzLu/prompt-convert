@@ -2,27 +2,27 @@
 let opcion;
 let history = [];
 
-function convertirArgaDls(arg) {
-    arg = parseFloat(arg);
-    let dls = arg / 1300;
+function convertCurrency(pesos) {
+    pesos = parseFloat(pesos);
+    let dls = pesos / 1300;
     return dls;
 }
 
 do {
-    opcion = prompt("Bienvenido a la calculadora de pesos a dólares!\n1-Convertir (Arg->Dls)\n2-Salir");
+    opcion = prompt("Bienvenido a la calculadora de pesos a dólares!\n1-Divisa (Arg->Dls)\n2-Salir");
 
     switch (opcion) {
         case "1":
-            let arg = prompt("Ingrese la cantidad de pesos que desea convertir.");
-            let dls = convertirArgaDls(arg);
+            let pesos = prompt("Ingrese la cantidad de pesos que desea convertir.");
+            let dls = convertCurrency(pesos);
             let resultado = {
                 tipo: "divisa",
-                entrada: `${arg} ARS`,
+                entrada: `${pesos} ARS`,
                 salida: `${dls.toFixed(2)} USD`,
                 fecha: new Date().toLocaleString(),
             };
             history.push(resultado);
-            alert(`La cantidad de dólares es: ${dls.toFixed(2)}`);
+            alert(`La cantidad de dólares es: $${dls.toFixed(2)}`);
             break;
        default:
             if (opcion!=="2")
